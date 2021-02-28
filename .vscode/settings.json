@@ -1,0 +1,10 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#2E2343",
+    // "activityBar.foreground": "#EFF3FB",
+    // "activityBar.border": "アクティビティバーとサイドバーの境界線の色",
+    // "activityBarBadge.background": "通知バッジの背景色",
+    // "activityBarBadge.foreground": "通知バッジの文字色"
+  },
+  "workbench.colorTheme": "Dracula"
+}
