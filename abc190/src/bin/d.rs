@@ -1,32 +1,28 @@
-// use proconio::input;
-// use super::proconio::input;
-use proconio::input;
+use std::usize;
 
+#[allow(unused_imports)]
+use proconio::{
+    fastout, input,
+    marker::{Bytes, Chars, Isize1, Usize1},
+};
+#[fastout]
 fn main() {
-    // input! {
-    //     v: i32,
-    //     t: i32,
-    //     s: i32,
-    //     d: i32,
-    // }
-    input! {
-        n: i32,
-    }
-    let mut result: f64 = 0.0;
-    for i in 0..n {
-        input! {
-            a: f64,//距離
-            p: f64,//価格
-            x: f64,//在庫
-        };
+    input!(n: usize);
 
-        if x - (a + 0.5) > 0.0 && (result > p || result == 0.0) {
-          // println!("x - ( a + 0.5) = {}", x - ( a + 0.5));
-          // println!("a = {}", a);
-            result = p;
-        }
-    }
-    println!("{}", result);
+    let div = enum_divisors(n);
+
+    println!("{}", div.iter().filter(|x| *x % 2 == 1).count() * 2);
 }
 
-
+pub fn enum_divisors(n: usize) -> Vec<usize> {
+    let mut res = vec![];
+    for i in 1..(n as f64).sqrt() as usize + 1 {
+        if n % i == 0 {
+            res.push(i);
+            if n / i != i {
+                res.push(n / i);
+            }
+        }
+    }
+    res
+}
